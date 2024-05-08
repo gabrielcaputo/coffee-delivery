@@ -2,6 +2,7 @@ import { ShoppingCartSimple } from "@phosphor-icons/react/dist/ssr";
 import { ProductType } from "../../../../@types/products";
 import { IncrementalButton } from "../../../../components/IncrementalButton";
 import { AddToCartButton, ProductCheckout, ProductDescription, ProductPrice, ProductTags, ProductTitle, ProductWrapper } from "./styles";
+import { ConvertToMoney } from "../../../../@helpers/convertToMoney";
 
 export function Product(product: ProductType) {
   return (
@@ -18,7 +19,7 @@ export function Product(product: ProductType) {
       <ProductDescription>{product.description}</ProductDescription>
       <ProductCheckout>
         <ProductPrice>
-          R$ <span>{String(product.price).padEnd(4, '000').replace('.', ',')}</span>
+          <span>{ConvertToMoney(product.price)}</span>
         </ProductPrice>
         <IncrementalButton />
         <AddToCartButton>
