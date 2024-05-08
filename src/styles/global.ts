@@ -9,15 +9,15 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${props => props.theme.colors.base['color-yellow']};
+    box-shadow: 0 0 0 2px ${s => s.theme.colors.base['color-yellow']};
   }
 
   body {
-    background: ${props => props.theme.background};
-    color: ${props => props.theme.colors.tokens['base-text']};
+    background: ${s => s.theme.background};
+    color: ${s => s.theme.colors.tokens['base-text']};
   }
   
   body, input, textarea, button {
-    font: ${props => props.theme.fonts.tokens['text-m']};
+    font: ${s => s.theme.fonts.tokens['text-m']};
   }
 `

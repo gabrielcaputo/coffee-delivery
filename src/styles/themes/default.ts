@@ -28,6 +28,7 @@ const helpers = {
   },
   sizes: {
     'size-0': 0,
+    'size-50': '0.25rem',
     'size-100': '0.5rem',
     'size-200': '0.625rem',
     'size-300': '0.75rem',
@@ -39,12 +40,12 @@ const helpers = {
     'size-900': '3rem',
   },
   breakpoints: {
-    'breakpoint-100': '320px',
-    'breakpoint-200': '720px',
-    'breakpoint-300': '1080px',
-    'breakpoint-400': '1280px',
-    'breakpoint-500': '1440px',
-    'breakpoint-600': '1600px',
+    'breakpoint-100': '20rem', // '320px'
+    'breakpoint-200': '45rem', // '720px'
+    'breakpoint-300': '60rem', // '960px'
+    'breakpoint-500': '75rem', // '1200px'
+    'breakpoint-600': '80rem', // '1280px'
+    'breakpoint-700': '90rem', // '1440px'
   },
   borderRadius: {
     'border-radius-100': '2px',
@@ -62,6 +63,9 @@ const helpers = {
 }
 
 export const defaultTheme = {
+  sizes: {
+    base: helpers.sizes
+  },
   colors: {
     base: {
       ...helpers.colors,
@@ -80,11 +84,19 @@ export const defaultTheme = {
       'cart-button-text': helpers.colors["color-yellow-dark"],
       'cart-button-background': helpers.colors["color-yellow-light"],
 
+      'header-location-text': helpers.colors["color-purple-dark"],
+      'header-location-background': helpers.colors["color-purple-light"],
+
       'base-button': helpers.colors["color-gray-400"],
       'base-hover': helpers.colors["color-gray-500"],
 
       'primary-button': helpers.colors["color-yellow"],
-      'primary-button-hover': helpers.colors["color-yellow-dark"]
+      'primary-text': helpers.colors["color-yellow-light"],
+      'primary-button-hover': helpers.colors["color-yellow-dark"],
+
+      'secondary-button': helpers.colors["color-purple-dark"],
+      'secondary-button-text': helpers.colors["color-purple-light"],
+      'secondary-button-hover': helpers.colors["color-yellow"],
     }
   },
   fonts: {
@@ -109,6 +121,7 @@ export const defaultTheme = {
   spacing: {
     base: {
       'spacing-0': helpers.sizes["size-0"],
+      'spacing-50': helpers.sizes["size-50"],
       'spacing-100': helpers.sizes["size-100"],
       'spacing-200': helpers.sizes["size-200"],
       'spacing-300': helpers.sizes["size-300"],
@@ -120,7 +133,19 @@ export const defaultTheme = {
       'spacing-900': helpers.sizes["size-900"],
     },
     tokens: {
+      'spacing-none': `${helpers.sizes["size-0"]}`,
+      'spacing-3xs': `${helpers.sizes["size-100"]}`,
+      'spacing-2xs': `${helpers.sizes["size-200"]}`,
+      'spacing-1xs': `${helpers.sizes["size-300"]}`,
+      'spacing-s': `${helpers.sizes["size-400"]}`,
+      'spacing-m': `${helpers.sizes["size-500"]}`,
+      'spacing-l': `${helpers.sizes["size-600"]}`,
+      'spacing-1xl': `${helpers.sizes["size-700"]}`,
+      'spacing-2xl': `${helpers.sizes["size-800"]}`,
+      'spacing-3xl': `${helpers.sizes["size-900"]}`,
+
       'spacing-stack-none': `${helpers.sizes["size-0"]} 0`,
+      'spacing-stack-3xs': `${helpers.sizes["size-100"]} 0`,
       'spacing-stack-2xs': `${helpers.sizes["size-200"]} 0`,
       'spacing-stack-1xs': `${helpers.sizes["size-300"]} 0`,
       'spacing-stack-s': `${helpers.sizes["size-400"]} 0`,
@@ -131,6 +156,7 @@ export const defaultTheme = {
       'spacing-stack-3xl': `${helpers.sizes["size-900"]} 0`,
 
       'spacing-inline-none': `0 ${helpers.sizes["size-0"]}`,
+      'spacing-inline-3xs': `0 ${helpers.sizes["size-100"]}`,
       'spacing-inline-2xs': `0 ${helpers.sizes["size-200"]}`,
       'spacing-inline-1xs': `0 ${helpers.sizes["size-300"]}`,
       'spacing-inline-s': `0 ${helpers.sizes["size-400"]}`,
@@ -147,9 +173,9 @@ export const defaultTheme = {
       'breakpoint-1xs': helpers.breakpoints["breakpoint-100"],
       'breakpoint-s': helpers.breakpoints["breakpoint-200"],
       'breakpoint-m': helpers.breakpoints["breakpoint-300"],
-      'breakpoint-l': helpers.breakpoints["breakpoint-400"],
-      'breakpoint-1xl': helpers.breakpoints["breakpoint-500"],
-      'breakpoint-2xl': helpers.breakpoints["breakpoint-600"],
+      'breakpoint-l': helpers.breakpoints["breakpoint-500"],
+      'breakpoint-1xl': helpers.breakpoints["breakpoint-600"],
+      'breakpoint-2xl': helpers.breakpoints["breakpoint-700"],
     }
   },
   borderRadius: {
