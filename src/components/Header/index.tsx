@@ -1,26 +1,9 @@
-import { useEffect, useState } from "react"
-
-interface LocationType {
-  city: string,
-  region: string,
-}
+import { useContext } from "react"
+import { GlobalContext } from "../../contexts/GlobalContext"
 
 export function Header() {
-  const [location, setLocation] = useState<LocationType>({
-    city: '',
-    region: ''
-  })
+  const { location } = useContext(GlobalContext)
   const locationText = location.city.length > 0 && `${location.city}, ${location.region}`
-
-  useEffect(() => {
-    fetch("http://ip-api.com/json/", {
-      method: 'GET',
-    }).then(response => response.json())
-      .then(result => {
-        setLocation(result)
-      })
-      .catch(e => e);
-  }, [])
 
   return (
     <>{locationText}</>

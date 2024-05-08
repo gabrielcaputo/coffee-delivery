@@ -1,5 +1,11 @@
+import { Banner } from "./components/Banner";
+import { Products } from "./components/Products";
+
 export function Home() {
   return (
-    <>Home</>
+    <div>
+      <Banner />
+      <Products />
+    </div>
   )
 }
