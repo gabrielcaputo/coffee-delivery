@@ -2,8 +2,9 @@ import { produce } from "immer"
 import { ActionTypes } from "./actions"
 
 export interface LocationFromAPI {
-  city: string,
-  region: string
+  city: {
+    name: string
+  },
 }
 
 interface GlobalState {

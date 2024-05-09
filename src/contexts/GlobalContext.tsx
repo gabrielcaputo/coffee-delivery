@@ -16,8 +16,9 @@ export const GlobalContext = createContext({} as GlobalContextType)
 export function GlobalContextProvider({ children }: GlobalContextProviderProps) {
   const [globalState, dispatch] = useReducer(globalReducer, {
     location: {
-      city: '',
-      region: ''
+      city: {
+        name: ''
+      },
     }
   })
 
@@ -28,7 +29,7 @@ export function GlobalContextProvider({ children }: GlobalContextProviderProps) 
   }, [])
 
   function getLocation() {
-    fetch("http://ip-api.com/json/", {
+    fetch("https://api.geoapify.com/v1/ipinfo?&apiKey=25a38e95a96843a88c39391048a03f9b", {
       method: 'GET',
     }).then(response => response.json())
       .then(result => {

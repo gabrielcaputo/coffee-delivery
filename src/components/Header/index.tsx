@@ -8,7 +8,7 @@ import { HeaderContainer, HeaderWrapper, HeaderLogo, HeaderCart, HeaderCartLocat
 export function Header() {
   const { location } = useContext(GlobalContext)
   const { cart } = useContext(ProductsContext)
-  const locationText = location.city.length > 0 && `${location.city}, ${location.region}`
+  const locationText = location.city.name  && `${location.city.name}`
 
   return (
     <HeaderContainer>
