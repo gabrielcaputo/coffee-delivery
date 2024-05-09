@@ -13,7 +13,14 @@ export type CartType = {
   total: number
 }
 
-export interface ProductsContextType {
-  products: Product[],
-  cart: Cart[]
+export interface ProductsState {
+  products: ProductType[]
+  cart: CartType[]
+}
+
+export interface ProductsContextType extends ProductsState {
+  addProductToCart: (data: CartType) => void
+  decrementCartItem: (data: CartType) => void
+  incrementCartItem: (data: CartType) => void
+  removeCartItem: (data: CartType) => void
 }

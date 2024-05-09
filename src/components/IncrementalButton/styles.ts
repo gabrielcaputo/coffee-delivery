@@ -8,7 +8,7 @@ export const IncrementalButtonWrapper = styled.div`
   border: 0;
   background: ${s => s.theme.colors.base["color-gray-400"]};
   color: ${s => s.theme.colors.base["color-purple-dark"]};
-  padding: 0 ${s => s.theme.spacing.tokens["spacing-2xs"]};
+  padding: 0 ${s => s.theme.spacing.tokens["spacing-3xs"]};
   font-size: 1rem;
 
   > div, > button {
@@ -25,5 +25,11 @@ export const IncrementalButtonWrapper = styled.div`
     color: ${s => s.theme.colors.base["color-purple"]};
     border: 0;
     background: none;
+    box-shadow: none;
+    cursor: pointer;
+
+    &[disabled] {
+      color: ${s => s.theme.colors.base["color-gray-600"]};
+    }
   }
 `

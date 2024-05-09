@@ -10,6 +10,8 @@ export function Header() {
   const { cart } = useContext(ProductsContext)
   const locationText = location.city.name  && `${location.city.name}`
 
+  const totalProducts = cart.reduce((x, i) => x + i.total, 0)
+
   return (
     <HeaderContainer>
       <HeaderWrapper>
@@ -26,7 +28,7 @@ export function Header() {
           <NavLink to="/cart">
             <HeaderCartButton>
               {cart.length > 0 &&
-                <HeaderCartButtonPill>{cart.length}</HeaderCartButtonPill>
+                <HeaderCartButtonPill>{totalProducts}</HeaderCartButtonPill>
               }
               <ShoppingCartSimple size={22} weight="fill" />
             </HeaderCartButton>

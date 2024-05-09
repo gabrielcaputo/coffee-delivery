@@ -48,13 +48,15 @@ export const HeaderCartButton = styled(HeaderButton)`
   color: ${s => s.theme.colors.tokens["cart-button-text"]};
 `
 export const HeaderCartButtonPill = styled.div`
+  font: ${s => s.theme.fonts.tokens.tag};
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   top: -${s => s.theme.sizes.base["size-100"]};
   right: -${s => s.theme.sizes.base["size-100"]};
-  width: ${s => s.theme.sizes.base["size-500"]};
+  min-width: 1.25rem;
+  padding: 0.25rem;
   background: ${s => s.theme.colors.tokens["cart-button-text"]};
   color: ${s => s.theme.colors.tokens["cart-button-background"]};
   font-weight: bold;

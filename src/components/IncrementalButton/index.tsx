@@ -1,12 +1,26 @@
 import { Minus, Plus } from "@phosphor-icons/react";
 import { IncrementalButtonWrapper } from "./styles";
 
-export function IncrementalButton() {
+type IncrementalButtonProps = {
+  total: number,
+  incrementTotal: () => void,
+  decrementTotal: () => void,
+  min?: number,
+  max?: number,
+}
+
+export function IncrementalButton({
+  total,
+  incrementTotal,
+  decrementTotal,
+  min,
+  max
+}: IncrementalButtonProps) {
   return (
     <IncrementalButtonWrapper>
-      <button><Minus weight="bold" /></button>
-      <div>0</div>
-      <button><Plus weight="bold" /></button>
+      <button onClick={decrementTotal} disabled={min ? total <= min : false}><Minus weight="bold" /></button>
+      <div>{total}</div>
+      <button onClick={incrementTotal} disabled={max ? total >= max : false}><Plus weight="bold" /></button>
     </IncrementalButtonWrapper>
   )
 }
