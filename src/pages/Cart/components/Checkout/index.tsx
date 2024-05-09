@@ -1,12 +1,12 @@
 import { useContext } from "react"
-import { ProductsContext } from "../../../../contexts/ProductsContext"
+import { CheckoutContext } from "../../../../contexts/CheckoutContext"
 import { ConvertToMoney } from "../../../../@helpers/convertToMoney";
 
 import { CartItem } from "./CartItem";
 import { CheckoutButton, CheckoutContainer, CheckoutPrice, CheckoutTotal, CheckoutWrapper } from "./styles";
 
 export function Checkout() {
-  const { cart, products } = useContext(ProductsContext)
+  const { cart, products } = useContext(CheckoutContext)
 
   function productById(id: string) {
     return products[products.findIndex(product => product.id === id)]

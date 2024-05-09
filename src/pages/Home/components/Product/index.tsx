@@ -1,15 +1,15 @@
 import { ShoppingCartSimple } from "@phosphor-icons/react/dist/ssr";
-import { ProductType } from "../../../../@types/products";
+import { ProductType } from "../../../../@types/checkout";
 import { IncrementalButton } from "../../../../components/IncrementalButton";
 import { ProductCheckout, ProductDescription, ProductPrice, ProductTags, ProductTitle, ProductWrapper } from "./styles";
 import { ConvertToMoney } from "../../../../@helpers/convertToMoney";
 import { useContext, useState } from "react";
-import { ProductsContext } from "../../../../contexts/ProductsContext";
+import { CheckoutContext } from "../../../../contexts/CheckoutContext";
 import { BaseButton } from "../../../../layouts/DefaultLayout/styles";
 import { GlobalContext } from "../../../../contexts/GlobalContext";
 
 export function Product(product: ProductType) {
-  const { addProductToCart } = useContext(ProductsContext)
+  const { addProductToCart } = useContext(CheckoutContext)
   const { notify } = useContext(GlobalContext)
   const [total, setTotal] = useState(1)
 

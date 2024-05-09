@@ -4,7 +4,7 @@ import { GlobalStyle } from "./styles/global"
 import { Router } from "./components/Router"
 import { BrowserRouter } from "react-router-dom"
 import { GlobalContextProvider } from "./contexts/GlobalContext"
-import { ProductsContextProvider } from "./contexts/ProductsContext"
+import { CheckoutContextProvider } from "./contexts/CheckoutContext"
 
 export function App() {
 
@@ -12,9 +12,9 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <GlobalContextProvider>
-          <ProductsContextProvider>
+          <CheckoutContextProvider>
             <Router />
-          </ProductsContextProvider>
+          </CheckoutContextProvider>
         </GlobalContextProvider>
       </BrowserRouter>
       <GlobalStyle />

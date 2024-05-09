@@ -1,17 +1,17 @@
 import { ReactNode, createContext, useEffect, useReducer } from "react";
-import { productsReducer } from "../reducers/products/reducer";
+import { checkoutReducer } from "../reducers/checkout/reducer";
 import { productsList } from "../data/products";
-import { CartType, ProductsContextType } from "../@types/products";
-import { addProductToCartAction, decrementCartItemAction, incrementCartItemAction, removeCartItemAction } from "../reducers/products/actions";
+import { CartType, CheckoutContextType } from "../@types/checkout";
+import { addProductToCartAction, decrementCartItemAction, incrementCartItemAction, removeCartItemAction } from "../reducers/checkout/actions";
 
-export const ProductsContext = createContext({} as ProductsContextType)
+export const CheckoutContext = createContext({} as CheckoutContextType)
 
-export function ProductsContextProvider({ children }: { children: ReactNode }) {
-  const [productsState, dispatch] = useReducer(productsReducer, {
+export function CheckoutContextProvider({ children }: { children: ReactNode }) {
+  const [checkoutState, dispatch] = useReducer(checkoutReducer, {
     products: productsList,
     cart: []
   }, (initialState) => {
-    const storedStateAsJSON = localStorage.getItem('@coffee-delivery:products-state-1.0.0');
+    const storedStateAsJSON = localStorage.getItem('@coffee-delivery:checkout-state-1.0.0');
     if (storedStateAsJSON) {
       return JSON.parse(storedStateAsJSON)
     }
@@ -34,15 +34,15 @@ export function ProductsContextProvider({ children }: { children: ReactNode }) {
     dispatch(removeCartItemAction(product))
   }
 
-  const { products, cart } = productsState
+  const { products, cart } = checkoutState
 
   useEffect(() => {
-    const stateJSON = JSON.stringify(productsState)
-    localStorage.setItem('@coffee-delivery:products-state-1.0.0', stateJSON)
-  }, [productsState])
+    const stateJSON = JSON.stringify(checkoutState)
+    localStorage.setItem('@coffee-delivery:checkout-state-1.0.0', stateJSON)
+  }, [checkoutState])
 
   return (
-    <ProductsContext.Provider value={{
+    <CheckoutContext.Provider value={{
       products,
       cart,
       addProductToCart,
@@ -51,7 +51,7 @@ export function ProductsContextProvider({ children }: { children: ReactNode }) {
       removeCartItem,
     }}>
       {children}
-    </ProductsContext.Provider>
+    </CheckoutContext.Provider>
   )
   
 }

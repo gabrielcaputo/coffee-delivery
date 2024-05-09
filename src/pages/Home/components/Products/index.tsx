@@ -1,11 +1,11 @@
 import { useContext } from "react"
-import { ProductsContext } from "../../../../contexts/ProductsContext"
-import { ProductType } from "../../../../@types/products"
+import { CheckoutContext } from "../../../../contexts/CheckoutContext"
+import { ProductType } from "../../../../@types/checkout"
 import { Product } from "../Product"
 import { ProductsContainer, ProductsList } from "./styles"
 
 export function Products() {
-  const { products } = useContext(ProductsContext)
+  const { products } = useContext(CheckoutContext)
   return (
     <ProductsContainer>
       <h2>Nossos cafés</h2>

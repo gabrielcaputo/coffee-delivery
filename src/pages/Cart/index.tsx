@@ -2,14 +2,14 @@ import { useContext } from "react";
 import { Checkout } from "./components/Checkout";
 import { Form } from "./components/Form";
 import { CartWrapper, CartContainer, CartEmpty } from "./styles";
-import { ProductsContext } from "../../contexts/ProductsContext";
+import { CheckoutContext } from "../../contexts/CheckoutContext";
 import { ShoppingCartSimple } from "@phosphor-icons/react";
 import { BaseButton } from "../../layouts/DefaultLayout/styles";
 import { useTheme } from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 export function Cart() {  
-  const { cart } = useContext(ProductsContext)
+  const { cart } = useContext(CheckoutContext)
   const theme = useTheme()
   const navigate = useNavigate();
 

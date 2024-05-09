@@ -1,4 +1,4 @@
-import { CartType } from "../../@types/products"
+import { CartType } from "../../@types/checkout"
 
 export enum ActionTypes {
   ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART',

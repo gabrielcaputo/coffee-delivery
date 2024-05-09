@@ -1,15 +1,15 @@
 import { useContext } from "react"
-import { ProductsContext } from "../../../../../contexts/ProductsContext"
+import { CheckoutContext } from "../../../../../contexts/CheckoutContext"
 import { IncrementalButton } from "../../../../../components/IncrementalButton"
 import { ConvertToMoney } from "../../../../../@helpers/convertToMoney";
-import { CartType } from "../../../../../@types/products";
+import { CartType } from "../../../../../@types/checkout";
 import { Trash } from "@phosphor-icons/react";
 import { CartItemDescription, CartItemImage, CartItemActions, CartItemNameAndPrice, CartItemWrapper, CartItemName, CartItemPrice } from "./styles";
 import { BaseButton } from "../../../../../layouts/DefaultLayout/styles";
 import { useTheme } from "styled-components";
 
 export function CartItem(item: CartType) {
-  const { products, decrementCartItem, incrementCartItem, removeCartItem } = useContext(ProductsContext)
+  const { products, decrementCartItem, incrementCartItem, removeCartItem } = useContext(CheckoutContext)
   const theme = useTheme()
 
   function productById(id: string) {

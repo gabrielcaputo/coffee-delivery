@@ -1,11 +1,11 @@
 import { produce } from "immer";
 import { ActionTypes } from "./actions";
-import { ProductsState } from "../../@types/products";
+import { CheckoutState } from "../../@types/checkout";
 
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function productsReducer(state: ProductsState, action: any) {
+export function checkoutReducer(state: CheckoutState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_PRODUCT_TO_CART: {
       return produce(state, draft => {

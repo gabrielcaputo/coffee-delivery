@@ -2,12 +2,12 @@ import { useContext } from "react"
 import { GlobalContext } from "../../contexts/GlobalContext"
 import { NavLink } from "react-router-dom"
 import { MapPin, ShoppingCartSimple } from "@phosphor-icons/react"
-import { ProductsContext } from "../../contexts/ProductsContext"
+import { CheckoutContext } from "../../contexts/CheckoutContext"
 import { HeaderContainer, HeaderWrapper, HeaderLogo, HeaderCart, HeaderCartLocation, HeaderCartButton, HeaderCartButtonPill } from "./styles"
 
 export function Header() {
   const { location } = useContext(GlobalContext)
-  const { cart } = useContext(ProductsContext)
+  const { cart } = useContext(CheckoutContext)
   const locationText = location.city.name  && `${location.city.name}`
 
   const totalProducts = cart.reduce((x, i) => x + i.total, 0)
