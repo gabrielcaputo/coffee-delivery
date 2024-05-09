@@ -21,10 +21,10 @@ export function Header() {
           </NavLink>
         </HeaderLogo>
         <HeaderCart>
-          <HeaderCartLocation>
+          {locationText && <HeaderCartLocation>
             <MapPin size={22} weight="fill" />
             <span>{locationText}</span>
-          </HeaderCartLocation>
+          </HeaderCartLocation>}
           <NavLink to="/cart">
             <HeaderCartButton>
               {cart.length > 0 &&
