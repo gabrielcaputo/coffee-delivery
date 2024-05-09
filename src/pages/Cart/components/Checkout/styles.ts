@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { BaseButton } from "../../../../layouts/DefaultLayout/styles";
 
 export const CheckoutWrapper = styled.div`
+  h2 {
+    font: ${s => s.theme.fonts.tokens["title-xs"]};
+    margin-bottom: 1rem;
+  }
 `
 
 export const CheckoutContainer = styled.div`
