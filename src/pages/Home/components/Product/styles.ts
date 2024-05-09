@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const ProductWrapper = styled.div`
   background: ${s => s.theme.colors.tokens["base-card"]};
   border-radius: ${s => s.theme.borderRadius.tokens["border-radius-card"]};
@@ -61,15 +60,4 @@ export const ProductPrice = styled.div`
   span {
     font: ${s => s.theme.fonts.tokens["title-m"]};
   }
-`
-
-export const AddToCartButton = styled.button`
-  display: flex;
-  align-items: center;
-  border-radius: ${s => s.theme.borderRadius.tokens["border-radius-s"]};
-  border: 0;
-  background: ${s => s.theme.colors.tokens["secondary-button"]};
-  color: ${s => s.theme.colors.tokens["secondary-button-text"]};
-  padding: ${s => s.theme.spacing.tokens["spacing-2xs"]};
-  font-size: 1rem;
 `

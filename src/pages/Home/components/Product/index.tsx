@@ -1,13 +1,16 @@
 import { ShoppingCartSimple } from "@phosphor-icons/react/dist/ssr";
 import { ProductType } from "../../../../@types/products";
 import { IncrementalButton } from "../../../../components/IncrementalButton";
-import { AddToCartButton, ProductCheckout, ProductDescription, ProductPrice, ProductTags, ProductTitle, ProductWrapper } from "./styles";
+import { ProductCheckout, ProductDescription, ProductPrice, ProductTags, ProductTitle, ProductWrapper } from "./styles";
 import { ConvertToMoney } from "../../../../@helpers/convertToMoney";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../../../../contexts/ProductsContext";
+import { BaseButton } from "../../../../layouts/DefaultLayout/styles";
+import { GlobalContext } from "../../../../contexts/GlobalContext";
 
 export function Product(product: ProductType) {
   const { addProductToCart } = useContext(ProductsContext)
+  const { notify } = useContext(GlobalContext)
   const [total, setTotal] = useState(1)
 
   function incrementTotal() {
@@ -21,6 +24,9 @@ export function Product(product: ProductType) {
   }
 
   function addProduct() {
+    notify(`${total}x ${product.name} adicionado${total > 1 ? `s` : ''} ao carrinho`, {
+      position: "bottom-center"
+    })
     addProductToCart({
       id: product.id,
       total
@@ -49,9 +55,9 @@ export function Product(product: ProductType) {
           decrementTotal={decrementTotal}
           max={10}
         />
-        <AddToCartButton onClick={addProduct}>
-          <ShoppingCartSimple weight="fill" />
-        </AddToCartButton>
+        <BaseButton size="large" color="secondary" onClick={addProduct}>
+          <ShoppingCartSimple weight="fill" size={'0.75rem'} />
+        </BaseButton>
       </ProductCheckout>
     </ProductWrapper>
   )

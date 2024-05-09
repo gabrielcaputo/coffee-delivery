@@ -1,10 +1,12 @@
 import { ReactNode, createContext, useEffect, useReducer } from "react";
 import { LocationFromAPI, globalReducer } from "../reducers/global/reducer";
 import { setLocationAction } from "../reducers/global/actions";
+import toast, { ToastOptions, Toaster } from "react-hot-toast";
 
 interface GlobalContextType {
   location: LocationFromAPI
   getLocation: (location: LocationFromAPI) => void
+  notify: (message: string, options: ToastOptions) => void
 }
 
 interface GlobalContextProviderProps {
@@ -38,12 +40,18 @@ export function GlobalContextProvider({ children }: GlobalContextProviderProps) 
       .catch(e => e);
   }
 
+  function notify(message: string, options?: ToastOptions) {
+    toast(message, options)
+  } 
+
   return (
     <GlobalContext.Provider value={{
       location,
-      getLocation
+      getLocation,
+      notify,
     }}>
       {children}
+      <Toaster />
     </GlobalContext.Provider>
   )
 }

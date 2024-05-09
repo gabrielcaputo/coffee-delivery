@@ -46,6 +46,12 @@ export const HeaderButton = styled.div`
 export const HeaderCartButton = styled(HeaderButton)`
   background: ${s => s.theme.colors.tokens["cart-button-background"]};
   color: ${s => s.theme.colors.tokens["cart-button-text"]};
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: ${s => s.theme.colors.base["color-yellow"]};
+    color: ${s => s.theme.colors.base["color-yellow-light"]};
+  }
 `
 export const HeaderCartButtonPill = styled.div`
   font: ${s => s.theme.fonts.tokens.tag};

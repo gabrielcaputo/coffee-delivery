@@ -96,7 +96,7 @@ export const defaultTheme = {
 
       'secondary-button': helpers.colors["color-purple-dark"],
       'secondary-button-text': helpers.colors["color-purple-light"],
-      'secondary-button-hover': helpers.colors["color-yellow"],
+      'secondary-button-hover': helpers.colors["color-purple"],
     }
   },
   fonts: {
@@ -114,7 +114,7 @@ export const defaultTheme = {
       'text-xs': `${helpers.weights.regular} 0.75rem / 130% ${helpers.fonts.Roboto}`,
 
       'tag': `${helpers.weights.bold} 0.625rem / 130% ${helpers.fonts.Roboto}`,
-      'button-g': `${helpers.weights.bold} 0.875rem / 160% ${helpers.fonts.Roboto}`,
+      'button-l': `${helpers.weights.bold} 0.875rem / 160% ${helpers.fonts.Roboto}`,
       'button-m': `${helpers.weights.regular} 0.75rem / 160% ${helpers.fonts.Roboto}`,
     }
   },

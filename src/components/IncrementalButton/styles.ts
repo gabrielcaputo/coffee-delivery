@@ -4,7 +4,7 @@ export const IncrementalButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: ${s => s.theme.borderRadius.tokens["border-radius-s"]};
+  border-radius: ${s => s.theme.borderRadius.tokens["border-radius-1xs"]};
   border: 0;
   background: ${s => s.theme.colors.base["color-gray-400"]};
   color: ${s => s.theme.colors.base["color-purple-dark"]};

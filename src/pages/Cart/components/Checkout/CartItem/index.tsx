@@ -4,9 +4,14 @@ import { IncrementalButton } from "../../../../../components/IncrementalButton"
 import { ConvertToMoney } from "../../../../../@helpers/convertToMoney";
 import { CartType } from "../../../../../@types/products";
 import { Trash } from "@phosphor-icons/react";
+import { CartItemDescription, CartItemImage, CartItemActions, CartItemNameAndPrice, CartItemWrapper, CartItemName, CartItemPrice } from "./styles";
+import { BaseButton } from "../../../../../layouts/DefaultLayout/styles";
+import { useTheme } from "styled-components";
 
 export function CartItem(item: CartType) {
   const { products, decrementCartItem, incrementCartItem, removeCartItem } = useContext(ProductsContext)
+  const theme = useTheme()
+
   function productById(id: string) {
     return products[products.findIndex(product => product.id === id)]
   }
@@ -22,20 +27,26 @@ export function CartItem(item: CartType) {
     removeCartItem(item)
   }
   return (
-    <div>
-      <img src={`/images/products/${productById(item.id).id}.png`} alt={productById(item.id).name} />
-      <>{productById(item.id).name}</>
-      <>{ConvertToMoney(productById(item.id).price * item.total)}</>
-      <IncrementalButton
-        total={item.total}
-        incrementTotal={incrementTotal}
-        decrementTotal={decrementTotal}
-        min={1}
-      />
-      <button onClick={removeItem}>
-        <Trash />
-        Remover
-      </button>
-    </div>
+    <CartItemWrapper>
+      <CartItemImage src={`/images/products/${productById(item.id).id}.png`} alt={productById(item.id).name} />
+      <CartItemDescription>
+        <CartItemNameAndPrice>
+          <CartItemName>{productById(item.id).name}</CartItemName>
+          <CartItemPrice>{ConvertToMoney(productById(item.id).price * item.total)}</CartItemPrice>
+        </CartItemNameAndPrice>
+        <CartItemActions>
+          <IncrementalButton
+            total={item.total}
+            incrementTotal={incrementTotal}
+            decrementTotal={decrementTotal}
+            min={1}
+          />
+          <BaseButton onClick={removeItem} size="medium">
+            <Trash color={theme.colors.base["color-purple"]} />
+            Remover
+          </BaseButton>
+        </CartItemActions>
+      </CartItemDescription>
+    </CartItemWrapper>
   )
 }
