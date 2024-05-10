@@ -15,8 +15,8 @@ export function Success() {
 
   function paymentTypes(paymentType: string) {
     switch(paymentType) {
-      case 'debt': return "Débito"
-      case 'credit': return "Crédito"
+      case 'debt': return "Cartão de Débito"
+      case 'credit': return "Cartão de Crédito"
       case 'cash': return "Dinheiro"
       default: return ''
     }
