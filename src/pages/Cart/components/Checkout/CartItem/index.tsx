@@ -43,7 +43,7 @@ export function CartItem(item: CartType) {
             decrementTotal={decrementTotal}
             min={1}
           />
-          <BaseButton onClick={removeItem} size="medium">
+          <BaseButton type="button" onClick={removeItem} size="medium">
             <Trash color={theme.colors.base["color-purple"]} />
             Remover
           </BaseButton>

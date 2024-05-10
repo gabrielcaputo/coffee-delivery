@@ -66,6 +66,7 @@ export function Cart() {
           <ShoppingCartSimple size={'5rem'} color={theme.colors.tokens["secondary-button"]} />
           <span>Nenhum item foi <br />adicionado no carrinho.</span>
           <BaseButton
+            type="button"
             size="large"
             color="secondary"
             onClick={() => navigate('/')}

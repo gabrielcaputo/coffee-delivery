@@ -56,7 +56,7 @@ export function Product(product: ProductType) {
           decrementTotal={decrementTotal}
           max={10}
         />
-        <BaseButton size="large" color="secondary" onClick={addProduct}>
+        <BaseButton type="button" size="large" color="secondary" onClick={addProduct}>
           <ShoppingCartSimple weight="fill" size={'0.75rem'} />
         </BaseButton>
       </ProductCheckout>

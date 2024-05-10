@@ -21,10 +21,10 @@ export function IncrementalButton({
 }: IncrementalButtonProps) {
   return (
     <IncrementalButtonWrapper>
-      <button onClick={decrementTotal} disabled={min ? total <= min : false}><Minus weight="bold" /></button>
+      <button type="button" onClick={decrementTotal} disabled={min ? total <= min : false}><Minus weight="bold" /></button>
       <input id={id} type="hidden" readOnly value={total} />
       <div>{total}</div>
-      <button onClick={incrementTotal} disabled={max ? total >= max : false}><Plus weight="bold" /></button>
+      <button type="button" onClick={incrementTotal} disabled={max ? total >= max : false}><Plus weight="bold" /></button>
     </IncrementalButtonWrapper>
   )
 }

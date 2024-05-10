@@ -24,14 +24,12 @@ export function checkoutReducer(state: CheckoutState, action: any) {
     case ActionTypes.DECREMENT_CART_ITEM: {
       return produce(state, draft => {
         const i = state.cart.findIndex(product => product.id === action.payload.id)
-        console.log(draft.cart[i].total)
         draft.cart[i].total = draft.cart[i].total - 1
       })
     }
     case ActionTypes.INCREMENT_CART_ITEM: {
       return produce(state, draft => {
         const i = state.cart.findIndex(product => product.id === action.payload.id)
-        console.log(draft.cart[i].total)
         draft.cart[i].total = draft.cart[i].total + 1
       })
     }
