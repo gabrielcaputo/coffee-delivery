@@ -40,6 +40,11 @@ export function checkoutReducer(state: CheckoutState, action: any) {
         draft.cart = state.cart.filter(product => product.id !== action.payload.id)
       })
     }
+    case ActionTypes.REMOVE_ALL_CART_ITEMS: {
+      return produce(state, draft => {
+        draft.cart = []
+      })
+    }
     default: return state
   }
 }

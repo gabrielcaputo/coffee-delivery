@@ -5,11 +5,14 @@ type IncrementalButtonProps = {
   total: number,
   incrementTotal: () => void,
   decrementTotal: () => void,
+  id?: string,
+  name: string,
   min?: number,
   max?: number,
 }
 
 export function IncrementalButton({
+  id,
   total,
   incrementTotal,
   decrementTotal,
@@ -19,6 +22,7 @@ export function IncrementalButton({
   return (
     <IncrementalButtonWrapper>
       <button onClick={decrementTotal} disabled={min ? total <= min : false}><Minus weight="bold" /></button>
+      <input id={id} type="hidden" readOnly value={total} />
       <div>{total}</div>
       <button onClick={incrementTotal} disabled={max ? total >= max : false}><Plus weight="bold" /></button>
     </IncrementalButtonWrapper>

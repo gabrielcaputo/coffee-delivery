@@ -21,6 +21,10 @@ export const IncrementalButtonWrapper = styled.div`
     font-weight: bold;
   }
 
+  input {
+    display: none;
+  }
+
   button {
     color: ${s => s.theme.colors.base["color-purple"]};
     border: 0;

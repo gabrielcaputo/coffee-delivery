@@ -22,5 +22,6 @@ export interface CheckoutContextType extends CheckoutState {
   addProductToCart: (data: CartType) => void
   decrementCartItem: (data: CartType) => void
   incrementCartItem: (data: CartType) => void
-  removeCartItem: (data: CartType) => void
+  removeCartItem: (data: CartType) => void,
+  removeAllCartItems: () => void,
 }

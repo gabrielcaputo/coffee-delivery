@@ -42,7 +42,7 @@ export function Checkout() {
           <span>Total</span>
           <span>{ConvertToMoney(totalPrice)}</span>
         </CheckoutTotal>
-        <CheckoutButton size="large" color="primary">Confirmar pedido</CheckoutButton>
+        <CheckoutButton type="submit" size="large" color="primary">Confirmar pedido</CheckoutButton>
 
       </CheckoutContainer>
     </CheckoutWrapper>

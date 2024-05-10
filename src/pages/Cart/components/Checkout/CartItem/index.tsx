@@ -36,6 +36,8 @@ export function CartItem(item: CartType) {
         </CartItemNameAndPrice>
         <CartItemActions>
           <IncrementalButton
+            id={`cart-item-${item.id}`}
+            name='cart-item'
             total={item.total}
             incrementTotal={incrementTotal}
             decrementTotal={decrementTotal}

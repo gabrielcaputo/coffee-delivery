@@ -5,6 +5,9 @@ export const CheckoutWrapper = styled.div`
   h2 {
     font: ${s => s.theme.fonts.tokens["title-xs"]};
     margin-bottom: 1rem;
+    @media screen and (max-width: ${s => s.theme.breakpoints.tokens["breakpoint-m"]}) {
+      margin-top: 2rem;
+    }
   }
 `
 

@@ -51,6 +51,7 @@ export function Product(product: ProductType) {
         </ProductPrice>
         <IncrementalButton
           total={total}
+          name="product"
           incrementTotal={incrementTotal}
           decrementTotal={decrementTotal}
           max={10}

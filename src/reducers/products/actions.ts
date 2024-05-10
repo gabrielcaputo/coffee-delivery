@@ -5,6 +5,7 @@ export enum ActionTypes {
   INCREMENT_CART_ITEM = 'INCREMENT_CART_ITEM',
   DECREMENT_CART_ITEM = 'DECREMENT_CART_ITEM',
   REMOVE_CART_ITEM = 'REMOVE_CART_ITEM',
+  REMOVE_ALL_CART_ITEMS = 'REMOVE_ALL_CART_ITEMS',
 }
 
 export function addProductToCartAction(data: CartType) {
@@ -32,5 +33,11 @@ export function removeCartItemAction(data: CartType) {
   return {
     type: ActionTypes.REMOVE_CART_ITEM,
     payload: data
+  }
+}
+
+export function removeAllCartItemsAction() {
+  return {
+    type: ActionTypes.REMOVE_ALL_CART_ITEMS,
   }
 }

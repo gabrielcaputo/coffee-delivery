@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const LayoutContainer = styled.div`
   /* background: ${s => s.theme.colors.tokens.background}; */
@@ -30,17 +31,17 @@ export const BaseButton = styled.button<{
     background: ${s => s.theme.colors.base["color-gray-500"]}
   }
   
-  ${s => s.size === 'medium' && `
+  ${s => s.size === 'medium' && css`
     font: ${s.theme.fonts.tokens["button-m"]};
     padding: ${s.theme.spacing.tokens["spacing-3xs"]};
   `}
 
-  ${s => s.size === 'large' && `
+  ${s => s.size === 'large' && css`
     font: ${s.theme.fonts.tokens["button-l"]};
     padding: ${s.theme.spacing.tokens["spacing-1xs"]};
   `}
 
-  ${s => s.color === 'primary' && `
+  ${s => s.color === 'primary' && css`
     color: ${s.theme.colors.tokens["primary-text"]};
     background: ${s.theme.colors.tokens["primary-button"]};
 
@@ -49,7 +50,7 @@ export const BaseButton = styled.button<{
     }
   `}
 
-  ${s => s.color === 'secondary' && `
+  ${s => s.color === 'secondary' && css`
     color: ${s.theme.colors.tokens["secondary-button-text"]};
     background: ${s.theme.colors.tokens["secondary-button"]};
 
@@ -57,4 +58,46 @@ export const BaseButton = styled.button<{
       background: ${s.theme.colors.tokens["secondary-button-hover"]};
     }
   `}
+`
+
+const BaseInputStyle = css`
+  border: 0;
+  font: ${s => s.theme.fonts.tokens["text-s"]};
+  padding: ${s => s.theme.spacing.tokens["spacing-1xs"]};
+  border-radius: ${s => s.theme.borderRadius.tokens["border-radius-1xs"]};
+  background: ${s => s.theme.colors.tokens["base-input"]};
+  border: 1px solid ${s => s.theme.colors.tokens["base-button"]};
+`
+
+export const BaseInput = styled.input`
+  ${BaseInputStyle}
+`
+
+export const BaseSelect = styled.select`
+  ${BaseInputStyle}
+`
+
+export const BaseCheckbox = styled.input`
+  /* display: none; */
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  &:checked + label {
+    border: 1px solid ${s => s.theme.colors.base["color-purple"]};
+    background: ${s => s.theme.colors.base["color-purple-light"]};
+  }
+`
+
+export const BaseCheckboxLabel = styled.label`
+  ${BaseInputStyle}
+  text-transform: uppercase;
+  cursor: pointer;
+  background: ${s => s.theme.colors.tokens["base-button"]};
+  font: ${s => s.theme.fonts.tokens["button-m"]};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
 `

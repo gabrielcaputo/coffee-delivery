@@ -1,8 +1,8 @@
 import { ReactNode, createContext, useEffect, useReducer } from "react";
-import { checkoutReducer } from "../reducers/checkout/reducer";
+import { checkoutReducer } from "../reducers/products/reducer";
 import { productsList } from "../data/products";
 import { CartType, CheckoutContextType } from "../@types/checkout";
-import { addProductToCartAction, decrementCartItemAction, incrementCartItemAction, removeCartItemAction } from "../reducers/checkout/actions";
+import { addProductToCartAction, decrementCartItemAction, incrementCartItemAction, removeAllCartItemsAction, removeCartItemAction } from "../reducers/products/actions";
 
 export const CheckoutContext = createContext({} as CheckoutContextType)
 
@@ -34,6 +34,10 @@ export function CheckoutContextProvider({ children }: { children: ReactNode }) {
     dispatch(removeCartItemAction(product))
   }
 
+  function removeAllCartItems() {
+    dispatch(removeAllCartItemsAction())
+  }
+
   const { products, cart } = checkoutState
 
   useEffect(() => {
@@ -49,6 +53,7 @@ export function CheckoutContextProvider({ children }: { children: ReactNode }) {
       decrementCartItem,
       incrementCartItem,
       removeCartItem,
+      removeAllCartItems,
     }}>
       {children}
     </CheckoutContext.Provider>
