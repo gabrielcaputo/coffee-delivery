@@ -8,7 +8,8 @@ import { HeaderContainer, HeaderWrapper, HeaderLogo, HeaderCart, HeaderCartLocat
 export function Header() {
   const { location } = useContext(GlobalContext)
   const { cart } = useContext(CheckoutContext)
-  const locationText = location.city.name  && `${location.city.name}`
+
+  const locationText = location.city.name  && `${decodeURIComponent(escape(location.city.name))}`
 
   const totalProducts = cart.reduce((x, i) => x + i.total, 0)
 
@@ -17,7 +18,11 @@ export function Header() {
       <HeaderWrapper>
         <HeaderLogo>
           <NavLink to="/">
-            <img src="/images/coffee-delivery-logo.svg" alt="Coffee Delivery" />
+            <picture>
+              <source media="(max-width: 599px)" srcSet="/images/coffee-delivery-logo-short.svg" />
+              <source media="(min-width: 600px)" srcSet="/images/coffee-delivery-logo.svg" />
+              <img src="/images/coffee-delivery-logo.svg" />
+            </picture>
           </NavLink>
         </HeaderLogo>
         <HeaderCart>

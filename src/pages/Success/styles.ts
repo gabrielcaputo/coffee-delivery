@@ -54,9 +54,22 @@ export const SuccessDescription = styled.div`
       display: flex;
       flex-direction: column;
       gap: ${s.theme.spacing.base["spacing-800"]};
-      border: 1px solid #ccc;
       padding: ${s.theme.spacing.base["spacing-800"]};
       border-radius: ${s.theme.borderRadius.tokens["border-radius-card"]};
+      background: ${s.theme.colors.tokens.background};
+      position: relative;
+
+      &:before {
+        border-radius: ${s.theme.borderRadius.tokens["border-radius-card"]};
+        content: '';
+        background-image: ${`linear-gradient(to bottom, ${s.theme.colors.base["color-yellow"]} 0%, ${s.theme.colors.base["color-purple"]} 100%);`}
+        top: -1px;
+        left: -1px;
+        bottom: -1px;
+        right: -1px;
+        position: absolute;
+        z-index:-1;
+      }
 
       li {
         display: flex;
