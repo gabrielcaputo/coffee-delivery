@@ -32,7 +32,7 @@ export function Success() {
             <li>
               <SuccessDescriptionItemImage color="purple"><MapPin /></SuccessDescriptionItemImage>
               <SuccessDescriptionItemText>
-                <span>Entrega em <strong>{state.street}, {state.number}</strong></span>
+                <span>Entrega em <strong>{state.street}, {state.number} {state.complement && `- ${state.complement}`}</strong></span>
                 <span>{state.neighborhood} - {state.city}/{state.state}</span>
               </SuccessDescriptionItemText>
             </li>

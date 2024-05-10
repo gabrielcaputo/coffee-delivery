@@ -87,6 +87,7 @@ export const SuccessDescriptionItemImage = styled.span<{
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
